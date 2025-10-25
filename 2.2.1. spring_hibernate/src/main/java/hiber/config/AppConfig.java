@@ -46,6 +46,10 @@ public class AppConfig {
         props.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
         props.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
 
+        props.put("hibernate.format_sql", "true");
+        props.put("hibernate.use_sql_comments", "true");
+        props.put("hibernate.generate_statistics", "true");
+
         factoryBean.setHibernateProperties(props);
         factoryBean.setAnnotatedClasses(User.class, Car.class);
         return factoryBean;
