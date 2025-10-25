@@ -39,14 +39,15 @@ public class MainApp {
         }
 
         System.out.println("=== Поиск пользователя по машине ===");
-        User userWithCar = userService.getUserByCar("BMW X5", 5);
-        if (userWithCar != null) {
+        Optional<User> userWithCar = userService.getUserByCar("BMW X5", 5);
+        if (userWithCar.isPresent()) {
+            User user = userWithCar.get();
             System.out.println("Пользователь с BMW X5 series 5:");
-            System.out.println("Id = " + userWithCar.getId());
-            System.out.println("First Name = " + userWithCar.getFirstName());
-            System.out.println("Last Name = " + userWithCar.getLastName());
-            System.out.println("Email = " + userWithCar.getEmail());
-            System.out.println("Car = " + userWithCar.getCar().getModel() + " series " + userWithCar.getCar().getSeries());
+            System.out.println("Id = " + user.getId());
+            System.out.println("First Name = " + user.getFirstName());
+            System.out.println("Last Name = " + user.getLastName());
+            System.out.println("Email = " + user.getEmail());
+            System.out.println("Car = " + user.getCar().getModel() + " series " + user.getCar().getSeries());
         } else {
             System.out.println("Пользователь с указанной машиной не найден");
         }
