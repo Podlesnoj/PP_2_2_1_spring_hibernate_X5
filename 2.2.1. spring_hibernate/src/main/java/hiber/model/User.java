@@ -36,6 +36,7 @@ public class User {
         this.lastName = lastName;
         this.email = email;
         this.car = car;
+        this.car.setUser(this);
     }
 
     public Long getId() {
